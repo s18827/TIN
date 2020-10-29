@@ -1,0 +1,27 @@
+h1 {
+	font-family: "Times New Roman";
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 750;
+}
+h2 {
+	font-family: Areal;
+	font-size: 28px;
+	font-style: normal;
+	font-weight: 550;
+}
+p {
+	font-size: 18px;
+	font-style: italic;
+	font-weight: 125;
+}
+input {
+	font-size: 80%;
+	font-style: italic;
+}
+label {
+	color: #905;
+}
+#label1 {
+	color: #888;
+}

@@ -1,0 +1,30 @@
+h2 {
+	font-family: "Times New Roman";
+	font-size: 22px;
+	font-style: bold;
+	font-weight: 666;
+}
+#t1 {
+  float: right;
+}
+#t2 {
+  float: left;
+}
+#t3 {
+  float: middle;
+}
+#t4 {
+  float: middle;
+}
+#p1 {
+  clear: right;
+}
+#p2 {
+  clear: left;
+}
+#p1 {
+  clear: middle;
+}
+#p1 {
+  clear: middle;
+}
