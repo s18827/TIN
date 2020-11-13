@@ -2,7 +2,7 @@
   background-color: rgb(0, 0, 0);
 }
 
-h1, h2,h3,h4 {
+h1, h2, h4 {
   color: rgb(204, 210, 216);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
@@ -15,7 +15,6 @@ h1, h2,h3,h4 {
   width: auto;
   margin: 10px;
   border: 3px solid rgb(0, 0, 0);
-  /* background-color: antiquewhite; */
 }
 
 .header_item {
@@ -35,9 +34,8 @@ h1, h2,h3,h4 {
 }
 
 .header_text {
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
-  color: rgb(23, 194, 94);
 }
 
 
@@ -62,13 +60,10 @@ h1, h2,h3,h4 {
   margin: 5px;
   font-size: 14px;
   font-family: 'Courier New', Courier, monospace;
-  /* border: 1px solid rgb(28, 207, 37); */
-  /* background-color: antiquewhite; */
 }
 
 .gallery_item {
   margin: 5px;
-  /* border: 1px solid rgb(138, 4, 228); */
   text-align: left;
   justify-content: space-between;
 }
