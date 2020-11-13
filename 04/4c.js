@@ -5,11 +5,11 @@ function check_palindrome(str){
         return false;
     }
     let modifStr = str.toLowerCase().replace(/[^a-zA-Z]+/g,'');
-    let count = 0;
     if(modifStr==="") {
         console.log("Empty string");
         return false;
     }
+    let count = 0;
     if((modifStr.length) % 2 === 0) {
         count = (modifStr.length) / 2;
     } else {
