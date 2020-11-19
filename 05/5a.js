@@ -1,6 +1,6 @@
 var person = {
-    name: 'Bob',
-    surname: 'Ross',
+    name: "Bob'",
+    surname: "Ross",
     birthdate: 1968,
 
     calcAge : function() {
@@ -25,7 +25,7 @@ function printProps(obj) {
     for(const prop in obj) {
         propTypes.push(typeof obj[prop]);
     }
-    
+
     for(let i = 0; i < props.length; i++) {
         console.log(props[i] + ": " + propTypes[i]);
     }
