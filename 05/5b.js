@@ -15,9 +15,8 @@ function Student(name, surname, id, grades) {
         return sum / grades.length;
     }
 
-} 
+}
 
 var stud1 = new Student("Aleks", "Xyz", 1, [5,4,3,3]);
 console.log(stud1.fullName());
 console.log(stud1.gradeAvg());
-

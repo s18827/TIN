@@ -27,4 +27,3 @@ student.fullName = "Abraham Lincoln";
 console.log(student.fullName);
 console.log(student.gradeAvg);
 // console.log(stud1.gradeAvg());
-

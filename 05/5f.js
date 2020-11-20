@@ -6,8 +6,8 @@ class Person {
 
     set fullName(fullName) {
         var split = fullName.toString().split(" ");
-        this.name = split[0];
-        this.surname = split[1];
+        this.name = split[0] || "";
+        this.surname = split[1] || "";
     }
 
     get fullName() {

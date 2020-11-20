@@ -18,7 +18,6 @@ function createStud(name, surname, id) {
     return newStud;
 }
 
-
 var stud1 = createStud("Ale", "Zal", 1);
 console.log(stud1.fullName());
 console.log(stud1.courseList);
