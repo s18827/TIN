@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="styleA.css"> -->
+    <title>6a</title>
+</head>
+<body>
+
+    <form id="form-user" action="#" method="post">
+        <div class="form-box">
+
+            <table cellpadding="3">
+                <tbody>
+                    <tr>
+                    <td>
+                        <input type="text" id="input-value" autofocus placeholder="0">
+                        <label for="input-value"><b>°F/°C</b></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="select-scale">Convert to:</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="select-scale">
+                            <option value="Celcius">Degrees Celcius [°C]</option>
+                            <option value="Fahrenheit">Degrees Fahrenheit [°F]</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="output-value">=</label>
+                        <output id="output-value"></output>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="button-reset">Clear</button>
+                        <button id="button-submit">Convert</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </form>
+    
+    <script src="./6a.js"></script>
+
+</body>
+</html>
