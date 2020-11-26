@@ -9,6 +9,7 @@ const reset = function(event) {
     document.getElementById("output-value").innerHTML = "";
 }
 
+// handling select-scale
 const getSelectedOption = function(sel) {
     let opt;
     for (let i = 0, len = sel.options.length; i < len; i++) {
@@ -20,13 +21,18 @@ const getSelectedOption = function(sel) {
     return opt;
 }
 
+const validate = {
+    isNumberDec:function(str) {
+        const reg = /^\d*\.?\d*$/;
+        return reg.test(str);
+    }
+};
 
 const submit = function(event) {
     event.preventDefault();
 
-    let valid = validateInput();
-    if(valid){
-        let val = document.getElementById("input-value").value;
+    let val = document.getElementById("input-value").value;
+    if(validate.isNumberDec(val)){
         let newVal;
 
         let sel = document.getElementById('select-scale');
@@ -45,12 +51,6 @@ const submit = function(event) {
     }else {
         alert('Enter numerical value')
     }
-}
-
-const validateInput = function(event) {
-    let input = document.getElementById("input-value").value;
-    if(input.match(/^\d*\.?\d*$/)) return true;
-    else return false;
 }
 
 document.addEventListener('DOMContentLoaded', init);
