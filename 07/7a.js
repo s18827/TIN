@@ -3,24 +3,21 @@
 const http = require('http');
 const url = require('url');
 const util = require('util');
+let errorAppeared = false;
 
 const server = http.createServer(function (req, res) {
   let path = url.parse(req.url, true);
   let query = util.inspect(path.query);
   let operands = getParamsFromQueryStr(query, res);
-  let result = resolveOperation(path.pathname, operands, res);
-
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end(
-    operands[0] +
-      ' ' +
-      result[0] +
-      ' ' +
-      operands[1] +
-      ' = ' +
-      result[1] +
-      '\n\n'
-  );
+  if (!errorAppeared) {
+    let x = operands[0];
+    let y = operands[1];
+    let result = resolveOperation(path.pathname, x, y, res);
+    if (!errorAppeared) {
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.end(x + ' ' + result[0] + ' ' + y + ' = ' + result[1] + '\n\n');
+    }
+  }
 });
 
 const port = 8080;
@@ -28,6 +25,11 @@ const port = 8080;
 server.listen(port, function () {
   console.log('Listening on port ' + port);
 });
+
+// server.on('error', function (e) {
+//   // Handle your error here
+//   console.error(e);
+// });
 
 function getParamsFromQueryStr(queryStr, res) {
   let operands = [];
@@ -39,15 +41,12 @@ function getParamsFromQueryStr(queryStr, res) {
     }
   }
   if (operands.length < 2) {
-    error(res, 400, 'Enter 2 operands!');
+    hadError(res, 404, 'Not enough operands found. Enter 2 operands');
   } else return operands;
 }
 
-function resolveOperation(strPathName, operands, res) {
+function resolveOperation(strPathName, x, y, res) {
   let oper = strPathName.toLowerCase();
-  let x = operands[0];
-  let y = operands[1];
-
   switch (oper) {
     case '/add':
       return ['+', add(x, y)];
@@ -58,10 +57,10 @@ function resolveOperation(strPathName, operands, res) {
     case '/div':
       return ['/', div(x, y, res)];
     default:
-      error(
+      hadError(
         res,
         404,
-        'Incorrect operation signature (choose one from: add/sub/mul/div)'
+        'Operation not found (choose one from: add/sub/mul/div)'
       );
   }
 }
@@ -79,11 +78,12 @@ const mul = function (x, y) {
 };
 
 const div = function (x, y, res) {
-  if (y == 0) error(res, 400, "You can't divide by 0!");
+  if (y == 0) hadError(res, 400, "You can't divide by 0");
   return x / y;
 };
 
-function error(res, code, message) {
+function hadError(res, code, message) {
+  errorAppeared = true;
   res.writeHead(code, { 'Content-Type': 'text/plain' });
   res.end('Error: ' + message);
 }
