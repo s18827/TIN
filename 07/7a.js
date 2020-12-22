@@ -26,11 +26,6 @@ server.listen(port, function () {
   console.log('Listening on port ' + port);
 });
 
-// server.on('error', function (e) {
-//   // Handle your error here
-//   console.error(e);
-// });
-
 function getParamsFromQueryStr(queryStr, res) {
   let operands = [];
   let vars = queryStr.toLowerCase().split("'");
@@ -41,7 +36,7 @@ function getParamsFromQueryStr(queryStr, res) {
     }
   }
   if (operands.length < 2) {
-    hadError(res, 404, 'Not enough operands found. Enter 2 operands');
+    hadError(res, 404, 'Not enough operands found. Enter 2 numeric operands');
   } else return operands;
 }
 
