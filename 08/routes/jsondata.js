@@ -6,7 +6,6 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 // curl -XPOST -d '{"fname": "Jan", "lname": "Kowalski", "age": "66"}' -H "Content-Type: application/json" http://localhost:3000/jsondata
 
-/* GET home page. */
 router.post('/', function (req, res, next) {
   let fname = req.body.fname;
   let lname = req.body.lname;

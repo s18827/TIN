@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
-/* GET home page. */
 router.post('/', function (req, res, next) {
   let fname = req.body.fname;
   let lname = req.body.lname;
