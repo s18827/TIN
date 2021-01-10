@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <form action="/formdata" method="POST">
+      <label for="param1">parameter1 =</label>
+      <input type="number" id="param1" name="param1" value="1"><br>
+      <label for="oper2">parameter2 =</label>
+      <input type="number" id="param2" name="param2" value="2"><br>
+      <label for="oper">operation:</label>
+      <input type="text" id="oper" name="oper" value="add"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+    
+    <div id="result">Result =</div>
+    <script src="src/9b.js"></script>
+  </body>
+</html>
