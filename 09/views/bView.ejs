@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <form>
+      <label for="param1">parameter1 =</label>
+      <input type="number" id="param1" value="1"><br>
+      <label for="oper2">parameter2 =</label>
+      <input type="number" id="param2" value="2"><br>
+      <label for="oper">operation:</label>
+      <select id="oper">
+        <option id="add">add</option>
+        <option id="sub">sub</option>
+        <option id="mul">mul</option>
+        <option id="div">div</option>
+      </select><br><br>
+      <button type="button" id="button-submit" value="Submit">Submit</button><br><br>
+      <div>Result:
+        <output id="result"></output>
+      </div>
+    </form>
+
+    <script>
+      // I don't know how to fix this error no matter what I do
+      const submitBtn = document.getElementById('button-submit');
+
+      submitBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        send("http://localhost:3000/b");
+      });
+
+      function send(url) {
+        const result = document.getElementById('result');
+        const formData = {
+          param1: document.getElementById('param1').value,
+          param2: document.getElementById('param2').value,
+          operation: document.getElementById('oper').value
+        };
+        
+        // console.log(jsonFormData);
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          // if (xhr.readyState === XMLHttpRequest.DONE) {
+          // JSON.stringify()
+          // }
+          console.log("state " + xhr.readyState);
+          console.log("status " + xhr.status);
+          console.log(url);
+          // const jsonFormData = JSON.stringify(JSON.parse(formData));
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var data = JSON.parse(xhr.responseText);
+            result.textContent = JSON.stringify(data);
+          }
+        }
+        xhr.open("POST", url);
+        xhr.send(JSON.stringify(formData));
+
+        // xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+        // xhr.onload = () => {
+        //   console.log('inside onload');
+        //   const done = 4;
+        //   const ok = 200;
+        //   let jsonResponse = null;
+        //   console.log('xhr.status: ' + xhr.status);
+        //   console.log(xhr.responseText);
+        //   if (xhr.status == 200) {  
+        //     try {
+        //       console.log('inside try block');
+        //       console.log(JSON.parse(xhr.response));
+        //       jsonResponse = JSON.stringify(JSON.parse(xhr.response));
+        //     } catch (e) {
+        //       console.error('Could not parse JSON')
+        //     }
+        //     result.innerHTML = jsonResponse;
+        //     }
+        // };
+
+        // xhr.onreadystatechange = function() {
+        //   const done = 4;
+        //   const ok = 200;
+        //   if (xhr.readyState === 4 && xhr.status == ok) {  
+        //     console.log('inside if');
+        //     // result.innerHTML = jsonFormData;
+        //     // xhr.send(JSON.stringify(data));
+        //     result.innerHTML = JSON.stringify(JSON.parse(xhr.responseText));
+        //   }
+        // }
+        // result.innerHTML = JSON.stringify(formData);        
+      }
+    </script>
+  </body>
+</html>
