@@ -40,7 +40,7 @@ router.post('/', function (req, res, next) {
   } else {
     resJSON = { response: result };
   }
-  res.render('aView', { result: JSON.stringify(resJSON) });
+  res.render('aView', { response: JSON.stringify(resJSON) });
 });
 
 module.exports = router;
