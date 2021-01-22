@@ -32,9 +32,7 @@ router.post('/', function (req, res, next) {
       errorExists = true;
       console.log('operation = ' + oper);
       errorMsg =
-        'Error, no proper operation specified (choose one from: add/sub/mul/div) ' +
-        ' chosen operation = ' +
-        oper;
+        'Error, no proper operation specified (choose one from: add/sub/mul/div)';
   }
   if (errorExists) {
     resJSON = { response: errorMsg };
@@ -42,7 +40,7 @@ router.post('/', function (req, res, next) {
   } else {
     resJSON = { response: result };
   }
-  res.render('aView', { response: JSON.stringify(resJSON) });
+  res.render('aView', { result: JSON.stringify(resJSON) });
 });
 
 module.exports = router;
