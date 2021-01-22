@@ -30,7 +30,11 @@ router.post('/', function (req, res, next) {
       break;
     default:
       errorExists = true;
-      errorMsg = 'Error, no operation specified';
+      console.log('operation = ' + oper);
+      errorMsg =
+        'Error, no proper operation specified (choose one from: add/sub/mul/div) ' +
+        ' chosen operation = ' +
+        oper;
   }
   if (errorExists) {
     resJSON = { response: errorMsg };

@@ -29,66 +29,30 @@
 
       submitBtn.addEventListener('click', (event) => {
         event.preventDefault();
-        send("http://localhost:3000/b");
+        send();
       });
 
-      function send(url) {
+      function send() {
         const result = document.getElementById('result');
         const formData = {
           param1: document.getElementById('param1').value,
           param2: document.getElementById('param2').value,
-          operation: document.getElementById('oper').value
+          oper: document.getElementById('oper').value
         };
-        
-        // console.log(jsonFormData);
+
+        // console.log(formData);
         const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
-          // if (xhr.readyState === XMLHttpRequest.DONE) {
-          // JSON.stringify()
-          // }
           console.log("state " + xhr.readyState);
           console.log("status " + xhr.status);
-          console.log(url);
-          // const jsonFormData = JSON.stringify(JSON.parse(formData));
           if (xhr.readyState == 4 && xhr.status == 200) {
-            var data = JSON.parse(xhr.responseText);
-            result.textContent = JSON.stringify(data);
+            let resTxt = JSON.stringify(xhr.responseText);
+            result.innerHTML = JSON.parse(resTxt);
           }
         }
-        xhr.open("POST", url);
+        xhr.open("POST", "http://localhost:3000/a", true);
+        xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
         xhr.send(JSON.stringify(formData));
-
-        // xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-        // xhr.onload = () => {
-        //   console.log('inside onload');
-        //   const done = 4;
-        //   const ok = 200;
-        //   let jsonResponse = null;
-        //   console.log('xhr.status: ' + xhr.status);
-        //   console.log(xhr.responseText);
-        //   if (xhr.status == 200) {  
-        //     try {
-        //       console.log('inside try block');
-        //       console.log(JSON.parse(xhr.response));
-        //       jsonResponse = JSON.stringify(JSON.parse(xhr.response));
-        //     } catch (e) {
-        //       console.error('Could not parse JSON')
-        //     }
-        //     result.innerHTML = jsonResponse;
-        //     }
-        // };
-
-        // xhr.onreadystatechange = function() {
-        //   const done = 4;
-        //   const ok = 200;
-        //   if (xhr.readyState === 4 && xhr.status == ok) {  
-        //     console.log('inside if');
-        //     // result.innerHTML = jsonFormData;
-        //     // xhr.send(JSON.stringify(data));
-        //     result.innerHTML = JSON.stringify(JSON.parse(xhr.responseText));
-        //   }
-        // }
-        // result.innerHTML = JSON.stringify(formData);        
       }
     </script>
   </body>

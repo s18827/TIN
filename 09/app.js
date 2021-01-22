@@ -36,10 +36,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/a', aRouter);
 app.use('/b', bRouter);
 
-app.get('/test.json', (req, res) => {
-  let test = { name: 'testName', value: 666 };
-  res.json(JSON.stringify(test));
-});
+// app.get('/test.json', (req, res) => {
+//   let test = { name: 'testName', value: 666 };
+//   res.json(JSON.stringify(test));
+// });
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
