@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>10a</title>
+    </head>
+    <body>
+        <form id="form-degrees" action="#" method="post">
+            <label for="input-degrees">Enter an amount of degrees to be converted:</label>
+            <br>
+            <input
+                type="text"
+                id="input-degrees"
+                autofocus
+                placeholder="0"
+            >
+            <br>
+            <label for="select-fromDeg">Convert from:</label>
+            <select id="select-fromDeg">
+                <option value="from-Celcius">°C</option>
+                <option value="from-Fahrenheit">°F</option>
+                <option value="from-Kelvin">°K</option>
+            </select>
+            <br>
+            <label for="select-toDeg">Convert to:</label>
+            <select id="select-toDeg">
+                <option value="to-Celcius">°C</option>
+                <option value="to-Fahrenheit">°F</option>
+                <option value="to-Kelvin">°K</option>
+            </select>
+            <br>
+            <label for="output-degrees">=</label>
+            <output id="output-degrees"></output>
+            <br>
+            <br>
+            <button id="button-reset1">Clear</button>
+            <button id="button-submit1">Convert</button>
+        </form>
+        <br>
+        <br>
+        <br>
+        <form id="form-distance" action="#" method="post">
+            <label for="input-distance">Enter a distance to be converted:</label>
+            <br>
+            <input
+                type="text"
+                id="input-distance"
+                autofocus
+                placeholder="0"
+            >
+            <br>
+            <label for="select-fromDist">Convert from:</label>
+            <select id="select-fromDist">
+                <option value="from-Kilometers">km</option>
+                <option value="from-Miles">mi</option>
+            </select>
+            <br>
+            <label for="select-toDist">Convert to:</label>
+            <select id="select-toDist">
+                <option value="to-Kilometers">km</option>
+                <option value="to-Miles">mi</option>
+            </select>
+            <br>
+            <label for="output-distance">=</label>
+            <output id="output-distance"></output>
+            <br>
+            <br>
+            <button id="button-reset2">Clear</button>
+            <button id="button-submit2">Convert</button>
+        </form>
+        <script src="./foo.js"></script>
+    </body>
+</html>
