@@ -54,6 +54,6 @@ exports.submit2 = (event) => {
     let convertedVal = convertDist(val, fromDist, toDist);
     document.getElementById('output-distance').innerHTML = convertedVal;
   } else {
-    alert('Enter numerical value in temperature conversion');
+    alert('Enter numerical value in distance conversion');
   }
 };
