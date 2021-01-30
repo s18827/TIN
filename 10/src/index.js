@@ -1,9 +1,5 @@
 const degrees = require('./degrees.js');
-
 const distance = require('./distance.js');
-
-import { degrees } from './degrees.js';
-import { distance } from './distance.js';
 
 const init = function () {
   document
